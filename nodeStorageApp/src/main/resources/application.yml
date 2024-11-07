@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: nodeStorageApp
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8325/eureka/

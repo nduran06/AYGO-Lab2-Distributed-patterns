@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: webClient
+server:
+  port: 3000  # Different port for web client
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - classpath:/public/
+      cache:
+        period: 0
+        
+# CORS configuration for web client
+  mvc:
+    cors:
+      allowed-origins: "*"
+      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-headers: "*"
+      allow-credentials: true
+      max-age: 3600
+
+# Custom application properties
+app:
+  services:
+    load-balancer-url: http://localhost:8764
+    websocket-url: ws://localhost:8081/ws
+  security:
+    allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    org.springframework: INFO
+    com.example: DEBUG
