@@ -13,13 +13,13 @@ public class UserService {
 	@Autowired
 	private ReplicatedUserStorage userStorage;
 	
-	/*@Autowired
+	@Autowired
     private WebSocketHandler webSocketHandler;
-*/
+    
     public void addUser(User entryUser) {
   
         userStorage.addUser(entryUser);
-      // webSocketHandler.notifyAllClients(entryUser);
+        webSocketHandler.notifyAllClients(entryUser);
     }
 
 }

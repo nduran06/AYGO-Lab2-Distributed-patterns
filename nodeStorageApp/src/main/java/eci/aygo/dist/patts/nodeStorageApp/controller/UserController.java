@@ -17,25 +17,26 @@ import eci.aygo.dist.patts.nodeStorageApp.service.UserService;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	
-    private static Logger logger = LoggerFactory.getLogger(UserController.class);
-    @Value("${eureka.instance.instanceId}")
-    private String instanceid;
-    
+
+	private static Logger logger = LoggerFactory.getLogger(UserController.class);
+
+	@Value("${eureka.instance.instanceId}")
+	private String instanceid;
+
 	@Autowired
-    private UserService userService;
+	private UserService userService;
 
 	@GetMapping(value = "/test")
-    public ResponseEntity<String> test() {
+	public ResponseEntity<String> test() {
 
-        return ResponseEntity.ok("instanceid: " + instanceid);
-    }
-	
-    @PostMapping(value = "/create")
-    public ResponseEntity<String> registerUser(@RequestBody User user) {
-    	
-    	logger.info("from UserController: " + user.toString());
-    	userService.addUser(user);
-        return ResponseEntity.ok("User registered successfully");
-    }
+		return ResponseEntity.ok("instanceid: " + instanceid);
+	}
+
+	@PostMapping(value = "/create")
+	public ResponseEntity<String> registerUser(@RequestBody User user) {
+
+		logger.info("from UserController: " + user.toString());
+		userService.addUser(user);
+		return ResponseEntity.ok("User registered successfully");
+	}
 }

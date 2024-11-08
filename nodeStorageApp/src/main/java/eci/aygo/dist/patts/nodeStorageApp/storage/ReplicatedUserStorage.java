@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import eci.aygo.dist.patts.nodeStorageApp.controller.UserController;
 import eci.aygo.dist.patts.nodeStorageApp.model.User;
 import eci.aygo.dist.patts.nodeStorageApp.util.Generator;
 

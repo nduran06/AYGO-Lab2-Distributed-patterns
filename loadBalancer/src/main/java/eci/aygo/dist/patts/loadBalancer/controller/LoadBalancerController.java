@@ -58,5 +58,4 @@ public class LoadBalancerController {
 					.body("Registration failed: " + e.getMessage());
 		}
 	}
-
 }

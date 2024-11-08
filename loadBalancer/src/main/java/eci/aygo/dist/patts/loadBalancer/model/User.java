@@ -8,7 +8,6 @@ import eci.aygo.dist.patts.loadBalancer.util.Parser;
 
 public class User {
 
-	private String id;
 	private String name;
 	private String email;
 	private String password;
@@ -72,5 +71,4 @@ public class User {
 			return null;
 		}
 	}
-
 }

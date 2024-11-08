@@ -6,7 +6,7 @@ spring:
       enabled: true
     loadbalancer:
       ribbon:
-        enabled: false
+        enabled: true
 server:
   port: 8764
 eureka:
