@@ -36,7 +36,8 @@ public class LoadBalancerController {
 	public ResponseEntity<String> test() {
 		try {
 			List<String> services = discoveryClient.getServices();
-			return ResponseEntity.ok("Available services: " + services.toString());
+			return ResponseEntity.ok("Available services: " + services.toString() + ", Available instances: " + discoveryClient.getInstances("userstorageapp-service").toString());
+			
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
 		}
