@@ -1,12 +1,19 @@
 spring:
   application:
     name: serviceDiscovery
+  cloud:
+    config:
+      importCheck:
+        enabled: false
 server:
   port: 8325
 eureka:
+  instance:
+    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    wait-time-in-ms-when-sync-empty: 0
-    enableSelfPreservation: false
+    renewal-percent-threshold: 0.49

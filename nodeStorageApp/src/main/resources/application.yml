@@ -1,12 +1,23 @@
 spring:
   application:
-    name: nodeStorageApp-service
+    name: userstorageapp-service
+  cloud:
+    discovery:
+      enabled: true
+    service-registry:
+      auto-registration:
+        enabled: true
 server:
-  port: ${SERVER_PORT:8081}
+  port: 8081
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8325/eureka/
+      defaultZone: http://localhost:8325/eureka
+    register-with-eureka: false
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
   instance:
-    instanceId: ${spring.application.name}:${random.uuid}
+    instanceId: ${spring.application.name}:${random.value}
     preferIpAddress: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 20
