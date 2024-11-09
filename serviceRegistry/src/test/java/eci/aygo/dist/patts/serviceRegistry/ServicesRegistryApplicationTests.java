@@ -1,4 +1,4 @@
-package eci.aygo.dist.patts.serviceDiscovery;
+package eci.aygo.dist.patts.serviceRegistry;
 
 import org.springframework.boot.test.context.SpringBootTest;
 
