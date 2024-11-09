@@ -30,29 +30,32 @@ public class LoadBalancerController {
 	private DiscoveryClient discoveryClient;
 	@Autowired
 	private RestTemplate restTemplate;
-	private int currentServerIndex = 0;
 
 	@GetMapping("/test")
 	public ResponseEntity<String> test() {
+		
 		try {
 			List<String> services = discoveryClient.getServices();
-			return ResponseEntity.ok("Available services: " + services.toString() + ", Available instances: " + discoveryClient.getInstances("userstorageapp-service").toString());
-			
-		} catch (Exception e) {
+			return ResponseEntity.ok("Available services: " + services.toString() + ", Available userstorageapp-service instances: " + discoveryClient.getInstances("userstorageapp-service").toString());
+		} 
+		
+		catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
 		}
 	}
 
 	@PostMapping("/create")
 	public ResponseEntity<String> registerUser(@RequestBody User entryUser) {
+		
 		try {
 			logger.info("Available services: {}", discoveryClient.getServices());
 			List<ServiceInstance> instances = discoveryClient.getInstances("userstorageapp-service");
 			logger.info("Found instances: {}", instances);
-
 			
 			return restTemplate.postForEntity("http://userstorageapp-service/api/users/create", entryUser, String.class);
-		} catch (Exception e) {
+		} 
+		
+		catch (Exception e) {
 			logger.error("Error in registration", e);
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 					.body("Registration failed: " + e.getMessage());

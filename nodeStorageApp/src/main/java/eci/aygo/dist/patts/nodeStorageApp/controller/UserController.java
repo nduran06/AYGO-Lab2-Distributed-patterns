@@ -35,7 +35,6 @@ public class UserController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<String> registerUser(@RequestBody User user) {
 
-		logger.info("from UserController: " + user.toString());
 		userService.addUser(user);
 		return ResponseEntity.ok("User registered successfully");
 	}

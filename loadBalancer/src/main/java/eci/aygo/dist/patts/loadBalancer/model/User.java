@@ -19,6 +19,8 @@ public class User {
 		this.email = email;
 		this.timestamp = Parser.defaultFormatDateTime(new Date());
 	}
+	
+
 
 	// getters and setters
 	public String getName() {

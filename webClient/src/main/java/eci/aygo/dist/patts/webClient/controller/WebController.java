@@ -1,5 +1,7 @@
 package eci.aygo.dist.patts.webClient.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -14,35 +16,39 @@ import eci.aygo.dist.patts.webClient.model.User;
 
 @Controller
 public class WebController {
-    
-    @Value("${app.services.load-balancer-url}")
-    private String loadBalancerUrl;
-    
-    @Value("${app.services.websocket-url}")
-    private String websocketUrl;
-    
-    @Autowired
-    private RestTemplate restTemplate;
 
-    
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("loadBalancerUrl", loadBalancerUrl);
-        model.addAttribute("websocketUrl", websocketUrl);
-        return "signup";
-    }
-    
-    @PostMapping("/user/create")
+	private static Logger logger = LoggerFactory.getLogger(WebController.class);
+
+	@Value("${app.services.load-balancer-url}")
+	private String loadBalancerUrl;
+
+	@Value("${app.services.websocket-url}")
+	private String websocketUrl;
+
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@GetMapping("/")
+	public String home(Model model) {
+		model.addAttribute("loadBalancerUrl", loadBalancerUrl);
+		model.addAttribute("websocketUrl", websocketUrl);
+		return "signup";
+	}
+
+	@PostMapping("/user/create")
     public ResponseEntity<?> saveStudent(@RequestBody User user) {
         
         try {
-            //// Forward the request to load balancer
+            // Forward the request to load balancer
             String url = loadBalancerUrl + "/api/users/create";
-			return restTemplate.postForEntity(url, user, String.class);
-
+            ResponseEntity<?> response = restTemplate.postForEntity(url, user, String.class);
+            logger.info("from WebController:" + response.getBody());
             
-        } catch (Exception e) {
-           // log.error("Error during registration", e);
+			return response;
+        } 
+        
+        catch (Exception e) {
+        	logger.error("Error during registration", e);
             return ResponseEntity.internalServerError()
                 .body("Registration failed: " + e.getMessage());
         }

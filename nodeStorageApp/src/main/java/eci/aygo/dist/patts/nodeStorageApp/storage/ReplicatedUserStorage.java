@@ -27,6 +27,7 @@ public class ReplicatedUserStorage {
 		this.userStore.put(userId, entryUser);
 		
     	logger.info("from ReplicatedUserStorage: " + entryUser.toString());
+    	logger.info("Total storage: " + this.userStore.toString());
 
 		return entryUser;
 	}

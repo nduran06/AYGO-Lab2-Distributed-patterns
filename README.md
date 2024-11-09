@@ -38,7 +38,7 @@ cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run -Dru
 
 * Execution with random port
 ```
-cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run"
+cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run
 ```
 
 5.  Start **Web Client** (*port* 3000):

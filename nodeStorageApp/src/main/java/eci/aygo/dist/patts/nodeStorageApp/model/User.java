@@ -14,11 +14,11 @@ public class User {
 	private String password;
 	private String timestamp;
 
-	public User(String name, String password, String email) {
+	public User(String name, String password, String email, String timestamp) {
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.timestamp = Parser.defaultFormatDateTime(new Date());
+		this.timestamp = timestamp;
 	}
 
 	// getters and setters
