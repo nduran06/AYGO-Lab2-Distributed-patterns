@@ -13,15 +13,7 @@ The architecture incorporates a load balancer, implemented in Spring, that uses 
 ```
 Java version: 17
 ```
-### Structure
 
-**Service Registry (Eureka Server) folder:** [serviceDiscovery](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/serviceDiscovery "serviceDiscovery")
-
-**Load Balancer folder:** [loadBalancer](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/loadBalancer "loadBalancer")
-
-**User Storage Application (Node) folder:** [nodeStorageApp](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/nodeStorageApp "nodeStorageApp")
-
-**Web Client Application folder:** [webClient](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/webClient "webClient")
 
 ### Run Instructions
 
@@ -31,7 +23,7 @@ git clone https://github.com/nduran06/AYGO-Lab2-Distributed-patterns.git
 ```
 2. Start **Service Registry** (*port* 8325):
 ```
-cd AYGO-Lab2-Distributed-patterns ; cd serviceDiscovery ; mvn spring-boot:run
+cd AYGO-Lab2-Distributed-patterns ; cd serviceRegistry ; mvn spring-boot:run
 ```
 3.  Start **Load Balancer** (*port* 8764):
 ```
@@ -54,4 +46,28 @@ cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run"
 cd AYGO-Lab2-Distributed-patterns ; cd webClient ; mvn spring-boot:run
 ```
 
-## Architecture Components
+## Architecture
+
+![](imgs/lab2-arqui.png)
+
+### Components
+
+#### 1. Service Registry
+
+- **Location:** [Service Registry](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/serviceRegistry "serviceRegistry")
+- **Purpose:** Acts as a central registry for all services, providing service registration and discovery capabilities. It monitors the status of each service and maintains an up-to-date record of available services.
+
+#### 2. Load Balancer
+
+- **Location:** [Load Balancer](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/loadBalancer "loadBalancer")
+- **Purpose:** Handles request distribution and routing by distributing incoming requests across storage nodes using the round-robin technique. It also facilitates service discovery through Eureka and acts as a single entry point for client requests.
+
+#### 3. Storage Nodes 
+
+- **Location:** [User Storage App](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/nodeStorageApp "nodeStorageApp")
+- **Purpose:** Serves user requests and manages data storage, handling WebSocket connections, replicating data between nodes, and transmitting real-time updates.
+
+#### 4. Web Client:
+
+- **Location:** [Web Client App](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/webClient "webClient")
+- **Purpose:** Provides the user interface, presenting a registration form, handling asynchronous requests, and dynamic content updates to improve user interaction.
