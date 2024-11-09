@@ -15,9 +15,10 @@ import eci.aygo.dist.patts.nodeStorageApp.util.Generator;
 @Component
 public class ReplicatedUserStorage {
 
-	private final ConcurrentHashMap<String, User> userStore = new ConcurrentHashMap<>();
-	private final AtomicLong idGenerator = Generator.getIdGenerator();
     private static Logger logger = LoggerFactory.getLogger(ReplicatedUserStorage.class);
+
+    private final AtomicLong idGenerator = Generator.getIdGenerator();
+	private final ConcurrentHashMap<String, User> userStore = new ConcurrentHashMap<>();
 
 	public User addUser(User entryUser) {
 
