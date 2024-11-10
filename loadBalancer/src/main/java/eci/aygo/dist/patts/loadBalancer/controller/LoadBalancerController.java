@@ -1,6 +1,7 @@
 package eci.aygo.dist.patts.loadBalancer.controller;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import eci.aygo.dist.patts.loadBalancer.model.User;
+import eci.aygo.dist.patts.loadBalancer.util.Generator;
 
 @RestController
 @RequestMapping("/api/users")
@@ -25,7 +27,8 @@ import eci.aygo.dist.patts.loadBalancer.model.User;
 public class LoadBalancerController {
 	
     private static Logger logger = LoggerFactory.getLogger(LoadBalancerController.class);
-	
+	private final AtomicLong idGenerator = Generator.getIdGenerator();
+
 	@Autowired
 	private DiscoveryClient discoveryClient;
 	@Autowired
@@ -51,6 +54,8 @@ public class LoadBalancerController {
 			logger.info("Available services: {}", discoveryClient.getServices());
 			List<ServiceInstance> instances = discoveryClient.getInstances("userstorageapp-service");
 			logger.info("Found instances: {}", instances);
+			
+			entryUser.setId(String.valueOf(this.idGenerator.incrementAndGet()));
 			
 			return restTemplate.postForEntity("http://userstorageapp-service/api/users/create", entryUser, String.class);
 		} 

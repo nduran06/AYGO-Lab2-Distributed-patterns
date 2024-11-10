@@ -21,7 +21,7 @@ public class ReplicatedUserStorageController {
 	@Autowired
     private ReplicatedUserStorage replicatedUserStorage;
 	
-    @PostMapping("/replicate")  // Note: not /api/storage/replicate
+    @PostMapping("/replicate")
     public ResponseEntity<String> handleReplication(@RequestBody ReplicationRequest request) {
         try {
         	logger.debug("Received replication request for key: {}", request.getUser());

@@ -1,4 +1,4 @@
-package eci.aygo.dist.patts.nodeStorageApp.util;
+package eci.aygo.dist.patts.loadBalancer.util;
 
 import java.util.concurrent.atomic.AtomicLong;
 

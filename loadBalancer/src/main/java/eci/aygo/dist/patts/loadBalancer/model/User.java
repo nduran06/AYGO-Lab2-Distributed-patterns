@@ -8,6 +8,7 @@ import eci.aygo.dist.patts.loadBalancer.util.Parser;
 
 public class User {
 
+	private String id;
 	private String name;
 	private String email;
 	private String password;
@@ -21,6 +22,16 @@ public class User {
 	}
 
 	// getters and setters
+	public String getId() {
+
+		return this.id;
+	}
+
+	public void setId(String id) {
+
+		this.id = id;
+	}
+
 	public String getName() {
 
 		return this.name;

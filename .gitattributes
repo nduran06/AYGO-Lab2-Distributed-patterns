@@ -16,3 +16,10 @@
 # Declare files that are truly binary and shouldn't be modified.
 *.png binary
 
+# Apply override to all files in the directory
+special-vendored-path/* linguist-vendored
+
+# Apply override to all files and directories in the directory
+ano-dir/** linguist-vendored
+Report/* linguist-vendored=true
+
