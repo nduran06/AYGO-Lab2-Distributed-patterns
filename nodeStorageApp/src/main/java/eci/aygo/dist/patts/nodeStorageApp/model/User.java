@@ -1,7 +1,5 @@
 package eci.aygo.dist.patts.nodeStorageApp.model;
 
-import java.util.Date;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import eci.aygo.dist.patts.nodeStorageApp.util.Parser;
