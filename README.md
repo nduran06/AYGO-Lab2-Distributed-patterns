@@ -75,7 +75,7 @@ cd AYGO-Lab2-Distributed-patterns ; cd webClient ; mvn spring-boot:run
 - **Location:** [Web Client App](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/webClient "webClient")
 - **Purpose:** Provides the user interface, presenting a registration form, handling asynchronous requests, and dynamic content updates to improve user interaction.
 
-#### Test run video (Spanish)
-[![asciicast](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/blob/main/imgs/lab2-arqui.png)](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/g/personal/natalia_duran-v_mail_escuelaing_edu_co/EQB7ol7zS-9OjN9ylLVW-7kBpa2fvzybkIYYBjPqZbcDJw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KQvCg2)
+## Test run video (Spanish)
+[![asciicast]()](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/g/personal/natalia_duran-v_mail_escuelaing_edu_co/EQB7ol7zS-9OjN9ylLVW-7kBpa2fvzybkIYYBjPqZbcDJw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KQvCg2)
 
 
