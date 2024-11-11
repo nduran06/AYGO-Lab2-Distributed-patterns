@@ -1,4 +1,3 @@
-
 # Patterns of Distributted Systems
 
 ## Summary
@@ -14,6 +13,10 @@ The architecture incorporates a load balancer, implemented in Spring, that uses 
 Java version: 17
 ```
 
+#### Spring Context
+
+- Web Client: Thymeleaf as a template engine
+- Service Discovery: Spring Cloud Eureka to register and locate microservices
 
 ### Run Instructions
 
@@ -38,7 +41,7 @@ cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run -Dru
 
 * Execution with random port
 ```
-cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run
+cd AYGO-Lab2-Distributed-patterns ; cd nodeStorageApp ; mvn spring-boot:run"
 ```
 
 5.  Start **Web Client** (*port* 3000):
@@ -71,3 +74,8 @@ cd AYGO-Lab2-Distributed-patterns ; cd webClient ; mvn spring-boot:run
 
 - **Location:** [Web Client App](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/tree/main/webClient "webClient")
 - **Purpose:** Provides the user interface, presenting a registration form, handling asynchronous requests, and dynamic content updates to improve user interaction.
+
+#### Test run video (Spanish)
+[![asciicast](https://github.com/nduran06/AYGO-Lab2-Distributed-patterns/blob/main/imgs/lab2-arqui.png)](https://pruebacorreoescuelaingeduco-my.sharepoint.com/:v:/g/personal/natalia_duran-v_mail_escuelaing_edu_co/EQB7ol7zS-9OjN9ylLVW-7kBpa2fvzybkIYYBjPqZbcDJw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KQvCg2)
+
+

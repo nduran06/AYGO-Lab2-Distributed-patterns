@@ -7,8 +7,14 @@ spring:
     loadbalancer:
       ribbon:
         enabled: true
+    config:
+      importCheck:
+        enabled: false
 server:
   port: 8764
+  ribbon:
+    eureka:
+      enabled: true
 eureka:
   client:
     serviceUrl:

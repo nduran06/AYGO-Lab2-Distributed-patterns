@@ -10,6 +10,9 @@ spring:
     service-registry:
       auto-registration:
         enabled: true
+    config:
+      importCheck:
+        enabled: false
 server:
   port: ${SERVER_PORT:0}
 eureka:
